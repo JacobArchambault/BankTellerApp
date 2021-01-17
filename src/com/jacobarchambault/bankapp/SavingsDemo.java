@@ -1,3 +1,4 @@
+package com.jacobarchambault.bankapp;
 import java.text.NumberFormat;
 
 /**

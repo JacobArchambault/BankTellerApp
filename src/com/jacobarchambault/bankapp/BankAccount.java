@@ -1,3 +1,4 @@
+package com.jacobarchambault.bankapp;
 
 public abstract class BankAccount {
 	private double balance; // Account balance

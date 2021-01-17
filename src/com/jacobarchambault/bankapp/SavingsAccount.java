@@ -1,3 +1,4 @@
+package com.jacobarchambault.bankapp;
 
 public class SavingsAccount extends BankAccount {
 	private boolean status;
