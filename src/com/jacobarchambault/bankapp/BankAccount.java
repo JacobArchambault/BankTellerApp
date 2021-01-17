@@ -2,12 +2,15 @@ package com.jacobarchambault.bankapp;
 
 public abstract class BankAccount {
 	private double balance; // Account balance
-	private int numDeposits; // Number of deposits
-	private int numWithdrawals; // Number of withdrawals
 	private double interestRate; // Interest rate
 	private double monthlyServiceCharges; // Service charges
+	private int numDeposits; // Number of deposits
+	private int numWithdrawals; // Number of withdrawals
 
-	public BankAccount(double bal, double intRate, double mon) {
+	public BankAccount(
+			double bal,
+			double intRate,
+			double mon) {
 		balance = bal;
 		interestRate = intRate;
 		monthlyServiceCharges = mon;
@@ -20,18 +23,51 @@ public abstract class BankAccount {
 		numDeposits++;
 	}
 
-	public void withdraw(double amount) {
-		balance -= amount;
-		numWithdrawals++;
+	/**
+	 * The getBalance method returns the account balance.
+	 * 
+	 * @return The account balance.
+	 */
+	public double getBalance() {
+		return balance;
 	}
 
-	private void calcInterest() {
-		// Get the monthly interest rate.
-		double monIntRate = interestRate / 12;
-		// Get the amount of interest for the month.
-		double monInterest = balance * monIntRate;
-		// Add the interest to the balance.
-		balance += monInterest;
+	/**
+	 * The getInterestRate method returns the interest rate.
+	 * 
+	 * @return The interest rate.
+	 */
+
+	public double getInterestRate() {
+		return interestRate;
+	}
+
+	/**
+	 * The getMonthlyServiceCharges method returns the monthly service charges
+	 * 
+	 * @return The monthly service charges.
+	 */
+	public double getMonthlyServiceCharges() {
+		return monthlyServiceCharges;
+	}
+
+	/**
+	 * The getNumDeposits method returns the number of deposits.
+	 * 
+	 * @return The number of deposits.
+	 */
+	public int getNumDeposits() {
+		return numDeposits;
+	}
+
+	/**
+	 * The getNumWithdrawals method returns the number of withdrawals.
+	 * 
+	 * @return The number of withdrawals.
+	 */
+
+	public int getNumWithdrawals() {
+		return numWithdrawals;
 	}
 
 	/**
@@ -65,51 +101,18 @@ public abstract class BankAccount {
 		monthlyServiceCharges = m;
 	}
 
-	/**
-	 * The getBalance method returns the account balance.
-	 * 
-	 * @return The account balance.
-	 */
-	public double getBalance() {
-		return balance;
+	public void withdraw(double amount) {
+		balance -= amount;
+		numWithdrawals++;
 	}
 
-	/**
-	 * The getNumDeposits method returns the number of deposits.
-	 * 
-	 * @return The number of deposits.
-	 */
-	public int getNumDeposits() {
-		return numDeposits;
-	}
-
-	/**
-	 * The getNumWithdrawals method returns the number of withdrawals.
-	 * 
-	 * @return The number of withdrawals.
-	 */
-
-	public int getNumWithdrawals() {
-		return numWithdrawals;
-	}
-
-	/**
-	 * The getInterestRate method returns the interest rate.
-	 * 
-	 * @return The interest rate.
-	 */
-
-	public double getInterestRate() {
-		return interestRate;
-	}
-
-	/**
-	 * The getMonthlyServiceCharges method returns the monthly service charges
-	 * 
-	 * @return The monthly service charges.
-	 */
-	public double getMonthlyServiceCharges() {
-		return monthlyServiceCharges;
+	private void calcInterest() {
+		// Get the monthly interest rate.
+		double monIntRate = interestRate / 12;
+		// Get the amount of interest for the month.
+		double monInterest = balance * monIntRate;
+		// Add the interest to the balance.
+		balance += monInterest;
 	}
 
 }

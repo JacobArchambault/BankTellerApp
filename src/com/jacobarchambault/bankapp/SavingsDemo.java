@@ -1,4 +1,5 @@
 package com.jacobarchambault.bankapp;
+
 import java.text.NumberFormat;
 
 /**
@@ -12,7 +13,10 @@ public class SavingsDemo {
 		// Create a SavingsAccount object with a $100 balance,
 		// 3% interest rate, and a monthly service charge
 		// of $2.50.
-		SavingsAccount savings = new SavingsAccount(100.0, 0.03, 2.50);
+		SavingsAccount savings = new SavingsAccount(
+				100.0,
+				0.03,
+				2.50);
 
 		// Display what we've got.
 		System.out.println("Balance: " + currency.format(savings.getBalance()));

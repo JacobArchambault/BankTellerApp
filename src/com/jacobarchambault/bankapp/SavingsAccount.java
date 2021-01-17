@@ -3,22 +3,21 @@ package com.jacobarchambault.bankapp;
 public class SavingsAccount extends BankAccount {
 	private boolean status;
 
-	public SavingsAccount(double bal, double intRate, double mon) {
-		super(bal, intRate, mon);
+	public SavingsAccount(
+			double bal,
+			double intRate,
+			double mon) {
+		super(
+				bal,
+				intRate,
+				mon);
 		if (bal < 25.0)
 			status = false; // Inactive
 		else
 			status = true; // Active
 	}
 
-	public void withdraw(double amount) {
-		if (status) {
-			super.withdraw(amount);
-			if (getBalance() < 25)
-				status = false;
-		}
-	}
-
+	@Override
 	public void deposit(double amount) {
 		super.deposit(amount);
 		if (!status) {
@@ -33,6 +32,7 @@ public class SavingsAccount extends BankAccount {
 	 * increased.
 	 */
 
+	@Override
 	public void monthlyProcess() {
 		double msc; // Monthly service charge
 		if (getNumWithdrawals() > 4) {
@@ -46,5 +46,14 @@ public class SavingsAccount extends BankAccount {
 			setMonthlyServiceCharges(msc);
 		} else
 			super.monthlyProcess();
+	}
+
+	@Override
+	public void withdraw(double amount) {
+		if (status) {
+			super.withdraw(amount);
+			if (getBalance() < 25)
+				status = false;
+		}
 	}
 }
