@@ -3,8 +3,8 @@ package com.jacobarchambault.bankapp;
 import java.text.NumberFormat;
 
 public final class SavingsAccount {
-	private boolean status;
 	private BankAccount account;
+	private boolean status;
 
 	public SavingsAccount(
 			BankAccount ba) {
