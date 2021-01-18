@@ -14,13 +14,9 @@ public final class SavingsAccount implements Account {
 		apr = intRate;
 	}
 
-	private void calcInterest() {
-		// Get the monthly interest rate.
-		double monIntRate = apr / 12;
-		// Get the amount of interest for the month.
-		double monInterest = account.getBalance() * monIntRate;
+	private void calcInterest() {;
 		// Add the interest to the balance.
-		deposit(monInterest);
+		deposit(account.getBalance() * (apr / 12));
 	}
 
 	@Override
