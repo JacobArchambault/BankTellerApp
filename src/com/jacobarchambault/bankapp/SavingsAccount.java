@@ -8,19 +8,12 @@ public final class SavingsAccount implements Account {
 	private boolean status;
 
 	public SavingsAccount(
-			BasicAccount ba, double intRate) {
+			BasicAccount ba,
+			double intRate) {
 		account = ba;
 		apr = intRate;
 	}
-	/**
-	 * The getInterestRate method returns the interest rate.
-	 * 
-	 * @return The interest rate.
-	 */
 
-	public double getInterestRate() {
-		return apr;
-	}
 	private void calcInterest() {
 		// Get the monthly interest rate.
 		double monIntRate = apr / 12;
