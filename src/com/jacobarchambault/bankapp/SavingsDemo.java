@@ -11,9 +11,7 @@ public class SavingsDemo {
 		// 3% interest rate, and a monthly service charge
 		// of $2.50.
 		SavingsAccount savings = new SavingsAccount(new BasicAccount(
-				100.0,
-				0.03,
-				2.50));
+				100.0), 0.03);
 
 		// Display what we've got.
 		savings.printReceipt();
@@ -32,12 +30,6 @@ public class SavingsDemo {
 		savings.withdraw(10.00);
 		savings.withdraw(1.00);
 		savings.withdraw(1.00);
-
-		// Display what we've done so far.
-		savings.printReceipt();
-
-		// Do the monthly processing.
-		savings.monthlyProcess();
 
 		// Display what we've done so far.
 		savings.printReceipt();

@@ -3,12 +3,31 @@ package com.jacobarchambault.bankapp;
 import java.text.NumberFormat;
 
 public final class SavingsAccount implements Account {
+	private double apr; // Interest rate
 	private BasicAccount account;
 	private boolean status;
 
 	public SavingsAccount(
-			BasicAccount ba) {
+			BasicAccount ba, double intRate) {
 		account = ba;
+		apr = intRate;
+	}
+	/**
+	 * The getInterestRate method returns the interest rate.
+	 * 
+	 * @return The interest rate.
+	 */
+
+	public double getInterestRate() {
+		return apr;
+	}
+	private void calcInterest() {
+		// Get the monthly interest rate.
+		double monIntRate = apr / 12;
+		// Get the amount of interest for the month.
+		double monInterest = account.getBalance() * monIntRate;
+		// Add the interest to the balance.
+		deposit(monInterest);
 	}
 
 	@Override
@@ -18,27 +37,6 @@ public final class SavingsAccount implements Account {
 			if (account.getBalance() >= 25)
 				status = true;
 		}
-	}
-
-	/**
-	 * The monthlyProcess method calls the super class's monthlyProcess method. If
-	 * the number of withdrawals is greater than 4, the monthly service charges are
-	 * increased.
-	 */
-
-	public void monthlyProcess() {
-		double msc; // Monthly service charge
-		if (account.getNumWithdrawals() > 4) {
-			// Get the monthly service charges.
-			msc = account.getMonthlyServiceCharges();
-			// Increase the monthly service charges.
-			account.setMonthlyServiceCharges(msc + (account.getNumWithdrawals() - 4));
-			// Do the monthly processing.
-			account.monthlyProcess();
-			// Set the monthly charges back.
-			account.setMonthlyServiceCharges(msc);
-		} else
-			account.monthlyProcess();
 	}
 
 	@Override
@@ -53,8 +51,6 @@ public final class SavingsAccount implements Account {
 	void printReceipt() {
 		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
 				.format(account.getBalance()));
-		System.out.println("Number of deposits: " + account.getNumDeposits());
-		System.out.println("Number of withdrawals: " + account.getNumWithdrawals());
 		System.out.println();
 
 	}
