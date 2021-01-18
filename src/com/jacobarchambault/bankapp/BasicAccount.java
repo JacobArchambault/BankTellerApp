@@ -1,8 +1,8 @@
 package com.jacobarchambault.bankapp;
 
-public final class BasicAccount {
-	private double balance; // Account balance
+public final class BasicAccount implements Account {
 	private double apr; // Interest rate
+	private double balance; // Account balance
 	private double monthlyServiceCharges; // Service charges
 	private int numDeposits = 0; // Number of deposits
 	private int numWithdrawals = 0; // Number of withdrawals
@@ -16,6 +16,7 @@ public final class BasicAccount {
 		monthlyServiceCharges = mon;
 	}
 
+	@Override
 	public void deposit(double amount) {
 		balance += amount;
 		numDeposits++;
@@ -99,6 +100,7 @@ public final class BasicAccount {
 		monthlyServiceCharges = m;
 	}
 
+	@Override
 	public void withdraw(double amount) {
 		balance -= amount;
 		numWithdrawals++;

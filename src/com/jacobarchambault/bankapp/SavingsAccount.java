@@ -2,7 +2,7 @@ package com.jacobarchambault.bankapp;
 
 import java.text.NumberFormat;
 
-public final class SavingsAccount {
+public final class SavingsAccount implements Account {
 	private BasicAccount account;
 	private boolean status;
 
@@ -11,6 +11,7 @@ public final class SavingsAccount {
 		account = ba;
 	}
 
+	@Override
 	public void deposit(double amount) {
 		account.deposit(amount);
 		if (!status) {
@@ -40,6 +41,7 @@ public final class SavingsAccount {
 			account.monthlyProcess();
 	}
 
+	@Override
 	public void withdraw(double amount) {
 		if (status) {
 			account.withdraw(amount);
