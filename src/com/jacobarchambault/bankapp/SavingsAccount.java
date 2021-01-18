@@ -1,10 +1,8 @@
 package com.jacobarchambault.bankapp;
 
-import java.text.NumberFormat;
-
 public final class SavingsAccount implements InterestBearingAccount {
-	private double apr; // Interest rate
 	private BasicAccount account;
+	private double apr; // Interest rate
 	private boolean status;
 
 	public SavingsAccount(
@@ -14,6 +12,7 @@ public final class SavingsAccount implements InterestBearingAccount {
 		apr = intRate;
 	}
 
+	@Override
 	public void calcInterest() {;
 		// Add the interest to the balance.
 		deposit(account.getBalance() * (apr / 12));
@@ -29,6 +28,12 @@ public final class SavingsAccount implements InterestBearingAccount {
 	}
 
 	@Override
+	public void printBalance() {
+		// TODO Auto-generated method stub
+		account.printBalance();		
+	}
+
+	@Override
 	public void withdraw(double amount) {
 		if (status) {
 			account.withdraw(amount);
@@ -37,10 +42,4 @@ public final class SavingsAccount implements InterestBearingAccount {
 		}
 	}
 
-	void printBalance() {
-		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
-				.format(account.getBalance()));
-		System.out.println();
-
-	}
 }

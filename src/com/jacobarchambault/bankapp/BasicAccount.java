@@ -1,5 +1,7 @@
 package com.jacobarchambault.bankapp;
 
+import java.text.NumberFormat;
+
 public final class BasicAccount implements Account {
 	private double balance; // Account balance
 
@@ -24,8 +26,16 @@ public final class BasicAccount implements Account {
 
 
 	@Override
+	public void printBalance() {
+		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
+				.format(balance));
+		System.out.println();
+
+	}
+	@Override
 	public void withdraw(double amount) {
 		balance -= amount;
 	}
+
 
 }
