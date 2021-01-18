@@ -13,10 +13,6 @@ public class SavingsAccount extends BankAccount {
 				bal,
 				intRate,
 				mon);
-		if (bal < 25.0)
-			status = false; // Inactive
-		else
-			status = true; // Active
 	}
 
 	@Override
