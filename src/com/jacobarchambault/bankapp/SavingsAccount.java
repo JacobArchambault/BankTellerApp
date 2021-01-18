@@ -23,7 +23,7 @@ public final class SavingsAccount implements InterestBearingAccount {
 	public void deposit(double amount) {
 		account.deposit(amount);
 		if (!status) {
-			if (account.getBalance() >= 25)
+			if (account.getBalance() >= 300)
 				status = true;
 		}
 	}
@@ -32,7 +32,7 @@ public final class SavingsAccount implements InterestBearingAccount {
 	public void withdraw(double amount) {
 		if (status) {
 			account.withdraw(amount);
-			if (account.getBalance() < 25)
+			if (account.getBalance() < 300)
 				status = false;
 		}
 	}
