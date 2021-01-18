@@ -1,6 +1,6 @@
 package com.jacobarchambault.bankapp;
 
-public abstract class BankAccount {
+public final class BankAccount {
 	private double balance; // Account balance
 	private double interestRate; // Interest rate
 	private double monthlyServiceCharges; // Service charges

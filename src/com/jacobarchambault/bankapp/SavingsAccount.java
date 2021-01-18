@@ -2,24 +2,19 @@ package com.jacobarchambault.bankapp;
 
 import java.text.NumberFormat;
 
-public class SavingsAccount extends BankAccount {
+public final class SavingsAccount {
 	private boolean status;
+	private BankAccount account;
 
 	public SavingsAccount(
-			double bal,
-			double intRate,
-			double mon) {
-		super(
-				bal,
-				intRate,
-				mon);
+			BankAccount ba) {
+		account = ba;
 	}
 
-	@Override
 	public void deposit(double amount) {
-		super.deposit(amount);
+		account.deposit(amount);
 		if (!status) {
-			if (getBalance() >= 25)
+			if (account.getBalance() >= 25)
 				status = true;
 		}
 	}
@@ -30,36 +25,34 @@ public class SavingsAccount extends BankAccount {
 	 * increased.
 	 */
 
-	@Override
 	public void monthlyProcess() {
 		double msc; // Monthly service charge
-		if (getNumWithdrawals() > 4) {
+		if (account.getNumWithdrawals() > 4) {
 			// Get the monthly service charges.
-			msc = getMonthlyServiceCharges();
+			msc = account.getMonthlyServiceCharges();
 			// Increase the monthly service charges.
-			setMonthlyServiceCharges(msc + (getNumWithdrawals() - 4));
+			account.setMonthlyServiceCharges(msc + (account.getNumWithdrawals() - 4));
 			// Do the monthly processing.
-			super.monthlyProcess();
+			account.monthlyProcess();
 			// Set the monthly charges back.
-			setMonthlyServiceCharges(msc);
+			account.setMonthlyServiceCharges(msc);
 		} else
-			super.monthlyProcess();
+			account.monthlyProcess();
 	}
 
-	@Override
 	public void withdraw(double amount) {
 		if (status) {
-			super.withdraw(amount);
-			if (getBalance() < 25)
+			account.withdraw(amount);
+			if (account.getBalance() < 25)
 				status = false;
 		}
 	}
 
 	void printReceipt() {
 		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
-				.format(getBalance()));
-		System.out.println("Number of deposits: " + getNumDeposits());
-		System.out.println("Number of withdrawals: " + getNumWithdrawals());
+				.format(account.getBalance()));
+		System.out.println("Number of deposits: " + account.getNumDeposits());
+		System.out.println("Number of withdrawals: " + account.getNumWithdrawals());
 		System.out.println();
 
 	}
