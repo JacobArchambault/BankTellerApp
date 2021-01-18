@@ -14,7 +14,7 @@ public class SavingsDemo {
 				100.0), 0.03);
 
 		// Display what we've got.
-		savings.printReceipt();
+		savings.printBalance();
 
 		// Make some deposits.
 		savings.deposit(25.00);
@@ -22,7 +22,7 @@ public class SavingsDemo {
 		savings.deposit(35.00);
 
 		// Display what we've done so far.
-		savings.printReceipt();
+		savings.printBalance();
 
 		// Make some withdrawals.
 		savings.withdraw(100.00);
@@ -32,6 +32,6 @@ public class SavingsDemo {
 		savings.withdraw(1.00);
 
 		// Display what we've done so far.
-		savings.printReceipt();
+		savings.printBalance();
 	}
 }

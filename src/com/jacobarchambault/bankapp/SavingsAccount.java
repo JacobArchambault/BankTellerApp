@@ -41,7 +41,7 @@ public final class SavingsAccount implements Account {
 		}
 	}
 
-	void printReceipt() {
+	void printBalance() {
 		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
 				.format(account.getBalance()));
 		System.out.println();
