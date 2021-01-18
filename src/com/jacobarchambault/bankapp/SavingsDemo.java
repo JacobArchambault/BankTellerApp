@@ -1,7 +1,5 @@
 package com.jacobarchambault.bankapp;
 
-import java.text.NumberFormat;
-
 /**
  * This program demonstrates a solution to the BankAccount and SavingsAccount
  * Classes programming challenge.
@@ -9,7 +7,6 @@ import java.text.NumberFormat;
 public class SavingsDemo {
 
 	public static void main(String[] args) {
-		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		// Create a SavingsAccount object with a $100 balance,
 		// 3% interest rate, and a monthly service charge
 		// of $2.50.
@@ -19,10 +16,7 @@ public class SavingsDemo {
 				2.50);
 
 		// Display what we've got.
-		System.out.println("Balance: " + currency.format(savings.getBalance()));
-		System.out.println("Number of deposits: " + savings.getNumDeposits());
-		System.out.println("Number of withdrawals: " + savings.getNumWithdrawals());
-		System.out.println();
+		savings.printReceipt();
 
 		// Make some deposits.
 		savings.deposit(25.00);
@@ -30,10 +24,7 @@ public class SavingsDemo {
 		savings.deposit(35.00);
 
 		// Display what we've done so far.
-		System.out.println("Balance: " + currency.format(savings.getBalance()));
-		System.out.println("Number of deposits: " + savings.getNumDeposits());
-		System.out.println("Number of withdrawals: " + savings.getNumWithdrawals());
-		System.out.println();
+		savings.printReceipt();
 
 		// Make some withdrawals.
 		savings.withdraw(100.00);
@@ -43,18 +34,12 @@ public class SavingsDemo {
 		savings.withdraw(1.00);
 
 		// Display what we've done so far.
-		System.out.println("Balance: " + currency.format(savings.getBalance()));
-		System.out.println("Number of deposits: " + savings.getNumDeposits());
-		System.out.println("Number of withdrawals: " + savings.getNumWithdrawals());
-		System.out.println();
+		savings.printReceipt();
 
 		// Do the monthly processing.
 		savings.monthlyProcess();
 
 		// Display what we've done so far.
-		System.out.println("Balance: " + currency.format(savings.getBalance()));
-		System.out.println("Number of deposits: " + savings.getNumDeposits());
-		System.out.println("Number of withdrawals: " + savings.getNumWithdrawals());
+		savings.printReceipt();
 	}
-
 }

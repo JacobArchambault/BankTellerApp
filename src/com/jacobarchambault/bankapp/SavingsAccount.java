@@ -1,5 +1,7 @@
 package com.jacobarchambault.bankapp;
 
+import java.text.NumberFormat;
+
 public class SavingsAccount extends BankAccount {
 	private boolean status;
 
@@ -55,5 +57,14 @@ public class SavingsAccount extends BankAccount {
 			if (getBalance() < 25)
 				status = false;
 		}
+	}
+
+	void printReceipt() {
+		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
+				.format(getBalance()));
+		System.out.println("Number of deposits: " + getNumDeposits());
+		System.out.println("Number of withdrawals: " + getNumWithdrawals());
+		System.out.println();
+
 	}
 }
