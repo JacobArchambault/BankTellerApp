@@ -2,7 +2,7 @@ package com.jacobarchambault.bankapp;
 
 import java.text.NumberFormat;
 
-public final class SavingsAccount implements Account {
+public final class SavingsAccount implements InterestBearingAccount {
 	private double apr; // Interest rate
 	private BasicAccount account;
 	private boolean status;
@@ -14,7 +14,7 @@ public final class SavingsAccount implements Account {
 		apr = intRate;
 	}
 
-	private void calcInterest() {;
+	public void calcInterest() {;
 		// Add the interest to the balance.
 		deposit(account.getBalance() * (apr / 12));
 	}
