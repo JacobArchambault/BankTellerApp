@@ -4,8 +4,8 @@ public abstract class BankAccount {
 	private double balance; // Account balance
 	private double interestRate; // Interest rate
 	private double monthlyServiceCharges; // Service charges
-	private int numDeposits; // Number of deposits
-	private int numWithdrawals; // Number of withdrawals
+	private int numDeposits = 0; // Number of deposits
+	private int numWithdrawals = 0; // Number of withdrawals
 
 	public BankAccount(
 			double bal,
@@ -14,8 +14,6 @@ public abstract class BankAccount {
 		balance = bal;
 		interestRate = intRate;
 		monthlyServiceCharges = mon;
-		numDeposits = 0;
-		numWithdrawals = 0;
 	}
 
 	public void deposit(double amount) {
