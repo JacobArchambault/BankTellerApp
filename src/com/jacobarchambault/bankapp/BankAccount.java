@@ -2,7 +2,7 @@ package com.jacobarchambault.bankapp;
 
 public final class BankAccount {
 	private double balance; // Account balance
-	private double interestRate; // Interest rate
+	private double apr; // Interest rate
 	private double monthlyServiceCharges; // Service charges
 	private int numDeposits = 0; // Number of deposits
 	private int numWithdrawals = 0; // Number of withdrawals
@@ -12,7 +12,7 @@ public final class BankAccount {
 			double intRate,
 			double mon) {
 		balance = bal;
-		interestRate = intRate;
+		apr = intRate;
 		monthlyServiceCharges = mon;
 	}
 
@@ -37,7 +37,7 @@ public final class BankAccount {
 	 */
 
 	public double getInterestRate() {
-		return interestRate;
+		return apr;
 	}
 
 	/**
@@ -106,7 +106,7 @@ public final class BankAccount {
 
 	private void calcInterest() {
 		// Get the monthly interest rate.
-		double monIntRate = interestRate / 12;
+		double monIntRate = apr / 12;
 		// Get the amount of interest for the month.
 		double monInterest = balance * monIntRate;
 		// Add the interest to the balance.
