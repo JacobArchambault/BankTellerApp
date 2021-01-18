@@ -3,11 +3,11 @@ package com.jacobarchambault.bankapp;
 import java.text.NumberFormat;
 
 public final class SavingsAccount {
-	private BankAccount account;
+	private BasicAccount account;
 	private boolean status;
 
 	public SavingsAccount(
-			BankAccount ba) {
+			BasicAccount ba) {
 		account = ba;
 	}
 

@@ -1,13 +1,13 @@
 package com.jacobarchambault.bankapp;
 
-public final class BankAccount {
+public final class BasicAccount {
 	private double balance; // Account balance
 	private double apr; // Interest rate
 	private double monthlyServiceCharges; // Service charges
 	private int numDeposits = 0; // Number of deposits
 	private int numWithdrawals = 0; // Number of withdrawals
 
-	public BankAccount(
+	public BasicAccount(
 			double bal,
 			double intRate,
 			double mon) {
