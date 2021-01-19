@@ -10,18 +10,19 @@ public final class BasicAccount implements Account {
 		balance = bal;
 	}
 
-	@Override
-	public void deposit(double amount) {
-		balance += amount;
-	}
-
 	/**
 	 * The getBalance method returns the account balance.
 	 * 
 	 * @return The account balance.
 	 */
-	public double getBalance() {
+	@Override
+	public double balance() {
 		return balance;
+	}
+
+	@Override
+	public void deposit(double amount) {
+		balance += amount;
 	}
 
 	@Override
