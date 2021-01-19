@@ -24,7 +24,6 @@ public final class BasicAccount implements Account {
 		return balance;
 	}
 
-
 	@Override
 	public void printBalance() {
 		System.out.println("Balance: " + NumberFormat.getCurrencyInstance()
@@ -32,10 +31,10 @@ public final class BasicAccount implements Account {
 		System.out.println();
 
 	}
+
 	@Override
 	public void withdraw(double amount) {
 		balance -= amount;
 	}
-
 
 }

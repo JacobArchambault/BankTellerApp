@@ -3,7 +3,7 @@ package com.jacobarchambault.bankapp;
 public final class SavingsAccount implements InterestBearingAccount {
 	private BasicAccount account;
 	private double apr; // Interest rate
-	private boolean status;
+	private boolean monthlyFeeAccrued;
 
 	public SavingsAccount(
 			BasicAccount ba,
@@ -21,25 +21,20 @@ public final class SavingsAccount implements InterestBearingAccount {
 	@Override
 	public void deposit(double amount) {
 		account.deposit(amount);
-		if (!status) {
-			if (account.getBalance() >= 300)
-				status = true;
-		}
 	}
 
 	@Override
 	public void printBalance() {
-		// TODO Auto-generated method stub
 		account.printBalance();		
 	}
 
 	@Override
 	public void withdraw(double amount) {
-		if (status) {
 			account.withdraw(amount);
-			if (account.getBalance() < 300)
-				status = false;
-		}
+			if (!monthlyFeeAccrued) {
+				if (account.getBalance() < 300)
+					monthlyFeeAccrued = true;				
+			}
 	}
 
 }
